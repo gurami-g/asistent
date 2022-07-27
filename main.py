@@ -7,7 +7,6 @@ import pyjokes
 
 Listener = sr.Recognizer()
 engine = pyttsx3.init()
-
 rate = engine.getProperty('rate')
 engine.setProperty('rate', 120)
 
