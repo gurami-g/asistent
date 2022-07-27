@@ -16,7 +16,7 @@ engine.setProperty('voice',voices[1].id)
 def talk(text):
     engine.say('text')
     engine.runAndWait()
-
+#
 def take_commamd():
     try:
         with sr.Microphone() as source:
