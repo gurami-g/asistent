@@ -1,3 +1,4 @@
+from click import command
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
@@ -14,7 +15,7 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
 
 def talk(text):
-    engine.say('text')
+    engine.say(text)
     engine.runAndWait()
 #
 def take_commamd():
@@ -38,17 +39,21 @@ def run_alexa():
         song = command.replace('play', '')
         talk('playing' + song)
         pywhatkit.playonyt(song)
+
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%I:%M %p')
         print(time)
         talk('current time is' + time)
-    elif 'who the heck is' in command:
-        person = command.replace('who the heck is', '0')
+
+    elif 'who is' in command:
+        person = command.replace('who is', '0')
         info = wikipedia.summary(person, 1)
         print(info)
         talk(info)
+
     elif 'date' in command:
         talk('sorry, I habe an headache')
+
     elif 'are you single' in command:
         talk('I am in relationship with wifi')
     
