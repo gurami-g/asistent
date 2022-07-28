@@ -6,14 +6,18 @@ import datetime
 import wikipedia
 import pyjokes
 
+en = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
+
+ru = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_RU-RU_IRINA_11.0"
+
 Listener = sr.Recognizer()
 engine = pyttsx3.init()
 rate = engine.getProperty('rate')
 engine.setProperty('rate', 120)
 
 voices = engine.getProperty('voices')
-engine.setProperty('voice',voices[1].id)
-
+engine.setProperty('voice',en )
+engine.setProperty('voice',ru)
 def talk(text):
     engine.say(text)
     engine.runAndWait()
@@ -60,8 +64,10 @@ def run_alexa():
     elif 'joke' in command:
         talk(pyjokes.get_joke())
 
-    elif 'hay' in command:
-        talk('hay')
+    elif 'hay' or 'Привет' in command:
+        talk('hay' or 'Привет')
+    
+    
 
     else:
         talk('please say the command again.')
