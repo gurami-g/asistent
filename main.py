@@ -31,7 +31,7 @@ def take_commamd():
             command = command.lower()
             if 'alexa' in command:   
                 command = command.replace('alexa', '')     
-                talk(command)
+                
     except:
         pass
     return command
