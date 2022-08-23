@@ -1,8 +1,8 @@
 from google_speech import Speech
 
 
-text = 'გამარჯობა'
+text = 'ga'
 
-lang = 'ge'
-Speech = Speech(text, lang)
+lang = 'en'
+speech = Speech(text, lang)
 Speech.play()
